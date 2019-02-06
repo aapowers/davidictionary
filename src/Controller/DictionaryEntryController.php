@@ -76,6 +76,7 @@ class DictionaryEntryController extends AbstractController
      * @param $id
      *
      * @return Response
+     * @throws \Doctrine\ORM\ORMException
      */
     public function editAction(Request $request, $id)
     {

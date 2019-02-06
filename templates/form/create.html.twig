@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}davidictionary{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            {{ form_start(dictionaryEntryForm) }}
-            {{ form_widget(dictionaryEntryForm) }}
-            {{ form_end(dictionaryEntryForm) }}
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(dictionaryEntryForm) }}
+    {{ form_widget(dictionaryEntryForm) }}
+    {{ form_end(dictionaryEntryForm) }}
+{% endblock %}
