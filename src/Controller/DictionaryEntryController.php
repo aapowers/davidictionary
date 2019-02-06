@@ -49,5 +49,17 @@ class DictionaryEntryController extends AbstractController
             'dictionaryEntryForm' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route(name="dictionaryList", path="/list")
+     *
+     * @return Response
+     */
+    public function listAction()
+    {
+        return $this->render('list.html.twig', [
+            'dictionaryList' => $this->dictionaryEntryManager->getAllDictionaryEntries(),
+        ]);
+    }
 }
 

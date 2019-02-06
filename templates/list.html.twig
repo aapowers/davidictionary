@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}davidictionary{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <table>
+                <tr>
+                    <th>
+                        Term
+                    </th>
+                    <th>
+                        Definition
+                    </th>
+                </tr>
+                {% for entry in dictionaryList %}
+                    <tr>
+                        <td>{{ entry.getTerm }}</td>
+                        <td>{{ entry.getDefinition }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
