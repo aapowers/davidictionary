@@ -97,5 +97,21 @@ class DictionaryEntryController extends AbstractController
             'dictionaryEntryForm' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route(name="delete", path="/delete/{id}")
+     * @param Request $request
+     * @param $id
+     *
+     * @return Response
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
+        $this->dictionaryEntryManager->deleteDictionaryEntry($dictionaryEntry);
+
+        return $this->redirectToRoute('homepage');
+    }
 }
 
