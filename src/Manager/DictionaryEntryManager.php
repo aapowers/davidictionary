@@ -44,6 +44,18 @@ class DictionaryEntryManager
     }
 
     /**
+     * Gets the DictionaryEntry for a given id
+     *
+     * @param $id
+     *
+     * @return DictionaryEntry
+     */
+    public function getDictionaryEntryById($id)
+    {
+        return $this->dictionaryEntryRepository->find($id);
+    }
+
+    /**
      * Gets the DictionaryEntry for a given term
      *
      * @param string $term
@@ -71,19 +83,13 @@ class DictionaryEntryManager
 
     /**
      * Updates a given DictionaryEntry
-     *
-     * @param DictionaryEntry $dictionaryEntry
-     * @param string $term
-     * @param string $definition
+     * Must be called in the context of a Symfony form
      *
      * @return DictionaryEntry
      * @throws \Doctrine\ORM\ORMException
      */
-    public function updateDictionaryEntry(DictionaryEntry $dictionaryEntry, string $term, string $definition)
+    public function updateDictionaryEntry(DictionaryEntry $dictionaryEntry)
     {
-        $dictionaryEntry->setTerm($term);
-        $dictionaryEntry->setDefinition($definition);
-        $this->entityManager->persist($dictionaryEntry);
         $this->entityManager->flush();
 
         return $dictionaryEntry;

@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
+/**
+ * Class DictionaryEntryController
+ * @package App\Controller
+ */
 class DictionaryEntryController extends AbstractController
 {
     /**
@@ -19,6 +23,10 @@ class DictionaryEntryController extends AbstractController
      */
     private $dictionaryEntryManager;
 
+    /**
+     * DictionaryEntryController constructor.
+     * @param DictionaryEntryManager $dictionaryEntryManager
+     */
     public function __construct(
         DictionaryEntryManager $dictionaryEntryManager
     ) {
@@ -59,6 +67,33 @@ class DictionaryEntryController extends AbstractController
     {
         return $this->render('list.html.twig', [
             'dictionaryList' => $this->dictionaryEntryManager->getAllDictionaryEntries(),
+        ]);
+    }
+
+    /**
+     * @Route(name="edit", path="/edit/{id}")
+     * @param Request $request
+     * @param $id
+     *
+     * @return Response
+     */
+    public function editAction(Request $request, $id)
+    {
+        $originalDictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
+        $form = $this->createForm(DictionaryEntryFormType::class, $originalDictionaryEntry);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $dictionaryEntry = $form->getData();
+            $this->dictionaryEntryManager->updateDictionaryEntry($dictionaryEntry);
+
+            return $this->redirectToRoute('homepage');
+        }
+
+        return $this->render('form/create.html.twig', [
+            'dictionaryEntryForm' => $form->createView(),
         ]);
     }
 }
