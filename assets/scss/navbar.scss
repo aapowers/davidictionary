@@ -1,0 +1,57 @@
+nav.navbar {
+  background: darkred;
+  font-size: 0.83rem;
+
+  li {
+    padding: .1rem .3rem;
+    margin: .13rem .1rem;
+    border-radius: 10rem;
+
+    &:not(.user-item) {
+      margin-right: 0.3rem;
+
+      &:hover {
+        background-color: darken(darkred, 10%);
+      }
+    }
+
+    &.active {
+      background-color: darkred;
+
+      &:hover {
+        background-color: darken(darkred, 5%);
+      }
+    }
+
+    span.fa,
+    svg {
+      margin-right: 0.2rem;
+    }
+  }
+
+  a.navbar-brand {
+    text-shadow: 1px 1px 3px #444;
+    padding: 0.5rem 0;
+
+    span.light {
+      font-weight: 200;
+    }
+  }
+
+  .nav-link {
+    text-shadow: 1px 1px 3px #444;
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    &.btn-link {
+      margin-top: 1px;
+
+      &:hover {
+        background-color: darkred;
+      }
+    }
+  }
+}
