@@ -61,7 +61,7 @@ class DictionaryEntry
 
     /**
      * @param string $term
-     * @return Entry
+     * @return DictionaryEntry
      */
     public function setTerm(string $term): DictionaryEntry
     {
@@ -79,7 +79,7 @@ class DictionaryEntry
 
     /**
      * @param string $definition
-     * @return Entry
+     * @return DictionaryEntry
      */
     public function setDefinition(string $definition): DictionaryEntry
     {

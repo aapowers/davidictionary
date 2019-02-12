@@ -6,6 +6,7 @@ use App\Repository\DictionaryEntryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\DictionaryEntry;
 use Doctrine\ORM\EntityManager;
+use http\Exception\RuntimeException;
 use Psr\Log\LoggerInterface;
 
 class DictionaryEntryManager
@@ -50,9 +51,9 @@ class DictionaryEntryManager
      *
      * @return DictionaryEntry
      */
-    public function getDictionaryEntryById($id)
+    public function getDictionaryEntryById($id): DictionaryEntry
     {
-        return $this->dictionaryEntryRepository->find($id);
+        return $this->dictionaryEntryRepository->findOneBy(['id' => $id]);
     }
 
     /**
@@ -60,18 +61,28 @@ class DictionaryEntryManager
      *
      * @param string $term
      *
-     * @return DictionaryEntry[]
+     * @return DictionaryEntry|null
      */
-    public function getDictionaryEntryByTerm(string $term)
+    public function getDictionaryEntryByTerm(string $term): ?DictionaryEntry
     {
-        return $this->dictionaryEntryRepository->findByTerm($term);
+
+        $dictionaryEntry = $this->dictionaryEntryRepository->findByTerm($term);
+
+        if ($dictionaryEntry) {
+            return $dictionaryEntry[0];
+        } else {
+            return null;
+        }
     }
 
     /**
      * Creates a new DictionaryEntry
      *
+     * @param DictionaryEntry $dictionaryEntry
      * @return DictionaryEntry
+     *
      * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function createDictionaryEntry(DictionaryEntry $dictionaryEntry)
     {
@@ -85,8 +96,11 @@ class DictionaryEntryManager
      * Updates a given DictionaryEntry
      * Must be called in the context of a Symfony form
      *
+     * @param DictionaryEntry $dictionaryEntry
      * @return DictionaryEntry
+     *
      * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function updateDictionaryEntry(DictionaryEntry $dictionaryEntry)
     {

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="dictionary-entry">
+        {% if dictionaryEntry %}
+            <div class="term">{{ dictionaryEntry.getTerm }}</div>
+            <div class="definition">{{ dictionaryEntry.getDefinition }}</div>
+            <div class="action-bar">
+                <ul>
+                    <li class="action-item">
+                        <a class="action-link" href="{{ path('edit', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-edit"></span> edit</a>
+                    </li>
+                    <li class="action-item">
+                        <a class="action-link" href="{{ path('delete', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-trash"></span> delete</a>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <div>No results found.</div>
+        {% endif %}
+    </div>
+{% endblock %}
