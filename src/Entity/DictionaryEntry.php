@@ -25,6 +25,7 @@ class DictionaryEntry
      * @var string
      *
      * @Assert\NotNull()
+     * @Assert\Length(max=100)
      * @ORM\Column(type="string", length=100)
      */
     private $term;
@@ -33,6 +34,7 @@ class DictionaryEntry
      * @var string
      *
      * @Assert\NotNull()
+     * @Assert\Length(max=1000)
      * @ORM\Column(type="string", length=1000)
      */
     private $definition;

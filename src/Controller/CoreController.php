@@ -17,7 +17,7 @@ class CoreController extends AbstractController
      */
     public function homepageAction()
     {
-        return $this->render('base.html.twig');
+        return $this->redirectToRoute('search');
     }
 }
 

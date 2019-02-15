@@ -45,16 +45,17 @@ class DictionaryEntryController extends AbstractController
      */
     public function createAction(Request $request)
     {
-        $form = $this->createForm(DictionaryEntryFormType::class, new DictionaryEntry('', ''));
+        $dictionaryEntry = new DictionaryEntry('', '');
+        $form = $this->createForm(DictionaryEntryFormType::class, $dictionaryEntry);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $dictionaryEntry = $form->getData();
+            $dictionaryEntry = $this->dictionaryEntryManager->createDictionaryEntry($dictionaryEntry);
 
-            $this->dictionaryEntryManager->createDictionaryEntry($dictionaryEntry);
-
-            return $this->redirectToRoute('homepage');
+            return $this->render('dictionary_entry.html.twig', [
+                'dictionaryEntry' => $dictionaryEntry,
+            ]);
         }
 
         return $this->render('form/create.html.twig', [
@@ -84,17 +85,18 @@ class DictionaryEntryController extends AbstractController
      */
     public function editAction(Request $request, $id)
     {
-        $originalDictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
-        $form = $this->createForm(DictionaryEntryFormType::class, $originalDictionaryEntry);
+        $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
+        $form = $this->createForm(DictionaryEntryFormType::class, $dictionaryEntry);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $dictionaryEntry = $form->getData();
-            $this->dictionaryEntryManager->updateDictionaryEntry($dictionaryEntry);
+            $dictionaryEntry = $this->dictionaryEntryManager->updateDictionaryEntry($dictionaryEntry);
 
-            return $this->redirectToRoute('homepage');
+            return $this->render('dictionary_entry.html.twig', [
+                'dictionaryEntry' => $dictionaryEntry,
+            ]);
         }
 
         return $this->render('form/create.html.twig', [
@@ -115,7 +117,7 @@ class DictionaryEntryController extends AbstractController
         $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
         $this->dictionaryEntryManager->deleteDictionaryEntry($dictionaryEntry);
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('dictionaryList');
     }
 
     /**
