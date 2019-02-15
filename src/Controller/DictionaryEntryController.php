@@ -142,13 +142,28 @@ class DictionaryEntryController extends AbstractController
 
             $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryByTerm($searchTerm['searchTerm']);
 
-            return $this->render('dictionary_entry.html.twig', [
-                'dictionaryEntry' => $dictionaryEntry,
-            ]);
+            return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
         }
 
         return $this->render('form/search.html.twig', [
             'searchForm' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route(name="view", path="/view/{id}")
+     * @param Request $request
+     * @param $id
+     *
+     * @return Response
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function viewAction(Request $request, $id)
+    {
+        $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
+
+        return $this->render('dictionary_entry.html.twig', [
+            'dictionaryEntry' => $dictionaryEntry,
         ]);
     }
 }
