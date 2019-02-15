@@ -37,7 +37,7 @@ class DictionaryEntryController extends AbstractController
     }
 
     /**
-     * @Route(name="create", path="/create")
+     * @Route(name="create", path="/admin/create")
      *
      * @param Request $request
      * @return Response
@@ -63,7 +63,7 @@ class DictionaryEntryController extends AbstractController
     }
 
     /**
-     * @Route(name="dictionaryList", path="/list")
+     * @Route(name="dictionaryList", path="/admin/list")
      *
      * @return Response
      */
@@ -75,7 +75,7 @@ class DictionaryEntryController extends AbstractController
     }
 
     /**
-     * @Route(name="edit", path="/edit/{id}")
+     * @Route(name="edit", path="/admin/edit/{id}")
      * @param Request $request
      * @param $id
      *
@@ -103,7 +103,7 @@ class DictionaryEntryController extends AbstractController
     }
 
     /**
-     * @Route(name="delete", path="/delete/{id}")
+     * @Route(name="delete", path="/admin/delete/{id}")
      * @param Request $request
      * @param $id
      *
