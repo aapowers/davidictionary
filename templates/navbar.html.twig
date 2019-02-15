@@ -2,14 +2,25 @@
 
     <a class="navbar-brand" href="{{ path('homepage') }}"><span class="fa fa-book-open"></span> davidictionary</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('dictionaryList') }}"><span class="fa fa-list-alt"></span>View All Entries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('create') }}"><span class="fa fa-plus-circle"></span>Create a New Entry</a>
-            </li>
-        </ul>
-    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div>
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="nav-item" href="{{ path('dictionaryList') }}"><span class="fa fa-list-alt"></span> View All Entries</a>
+                </li>
+                <li>
+                    <a class="nav-item" href="{{ path('create') }}"><span class="fa fa-plus-circle"></span> Create a New Entry</a>
+                </li>
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="user-info">
+            <div class="user-greeting nav-item">Hi, <b>{{ app.user.username }}!</b></div>
+            <div class="logout-link nav-item">
+                <a href="{{ path('app_logout') }}"><span class="fa fa-sign-out-alt"></span> Logout</a>
+            </div>
+        </div>
+    {% endif %}
 </nav>

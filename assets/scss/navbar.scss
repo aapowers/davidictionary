@@ -1,6 +1,7 @@
 nav.navbar {
   background: darkred;
   font-size: 0.83rem;
+  display: flex;
 
   li {
     padding: .1rem .3rem;
@@ -34,7 +35,7 @@ nav.navbar {
     }
   }
 
-  .nav-link {
+  .nav-item {
     text-shadow: 1px 1px 3px #444;
     color: #fff;
     a {
@@ -49,5 +50,10 @@ nav.navbar {
         background-color: darkred;
       }
     }
+  }
+
+  div.user-info{
+    flex-direction: column;
+    margin-left: auto;
   }
 }
