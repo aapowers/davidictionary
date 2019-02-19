@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>No results found.</div>
+    <div class="action-bar">
+        <ul>
+            <li class="action-item">
+                <a class="action-link" href="{{ path('search') }}"><span class="fa fa-search"></span> search for a term</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

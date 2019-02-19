@@ -144,7 +144,11 @@ class DictionaryEntryController extends AbstractController
 
             $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryByTerm($searchTerm['searchTerm']);
 
-            return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
+            if ($dictionaryEntry){
+                return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
+            } else {
+                return $this->render('no_results.html.twig');
+            }
         }
 
         return $this->render('form/search.html.twig', [

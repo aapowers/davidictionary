@@ -7,31 +7,27 @@
         </div>
     {% endfor %}
     <div class="dictionary-entry">
-        {% if dictionaryEntry %}
-            <div class="term">{{ dictionaryEntry.getTerm }}</div>
-            <div class="definition">{{ dictionaryEntry.getDefinition }}</div>
-            <div class="action-bar">
-                <ul>
-                    {% if is_granted('ROLE_ADMIN') %}
+        <div class="term">{{ dictionaryEntry.getTerm }}</div>
+        <div class="definition">{{ dictionaryEntry.getDefinition }}</div>
+        <div class="action-bar">
+            <ul>
+                {% if is_granted('ROLE_ADMIN') %}
 
-                        <div class="admin-actions">
-                            <li class="action-item">
-                                <a class="action-link" href="{{ path('edit', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-edit"></span> edit</a>
-                            </li>
-                            <li class="action-item">
-                                <a class="action-link" href="{{ path('delete', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-trash"></span> delete</a>
-                            </li>
-                        </div>
-                    {% endif %}
-                    <div>
+                    <div class="admin-actions">
                         <li class="action-item">
-                            <a class="action-link" href="{{ path('search') }}"><span class="fa fa-search"></span> search for a term</a>
+                            <a class="action-link" href="{{ path('edit', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-edit"></span> edit</a>
+                        </li>
+                        <li class="action-item">
+                            <a class="action-link" href="{{ path('delete', { 'id': dictionaryEntry.getId }) }}"><span class="fa fa-trash"></span> delete</a>
                         </li>
                     </div>
-                </ul>
-            </div>
-        {% else %}
-            <div>No results found.</div>
-        {% endif %}
+                {% endif %}
+                <div>
+                    <li class="action-item">
+                        <a class="action-link" href="{{ path('search') }}"><span class="fa fa-search"></span> search for a term</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
     </div>
 {% endblock %}
