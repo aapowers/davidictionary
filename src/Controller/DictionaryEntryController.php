@@ -53,9 +53,9 @@ class DictionaryEntryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $dictionaryEntry = $this->dictionaryEntryManager->createDictionaryEntry($dictionaryEntry);
 
-            return $this->render('dictionary_entry.html.twig', [
-                'dictionaryEntry' => $dictionaryEntry,
-            ]);
+            $this->addFlash('success', 'Dictionary entry (' . $dictionaryEntry->getTerm() . ') created!');
+
+            return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
         }
 
         return $this->render('form/create.html.twig', [
@@ -94,9 +94,9 @@ class DictionaryEntryController extends AbstractController
 
             $dictionaryEntry = $this->dictionaryEntryManager->updateDictionaryEntry($dictionaryEntry);
 
-            return $this->render('dictionary_entry.html.twig', [
-                'dictionaryEntry' => $dictionaryEntry,
-            ]);
+            $this->addFlash('success', 'Dictionary entry (' . $dictionaryEntry->getTerm() . ') updated!');
+
+            return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
         }
 
         return $this->render('form/create.html.twig', [
@@ -116,6 +116,8 @@ class DictionaryEntryController extends AbstractController
     {
         $dictionaryEntry = $this->dictionaryEntryManager->getDictionaryEntryById((int)$id);
         $this->dictionaryEntryManager->deleteDictionaryEntry($dictionaryEntry);
+
+        $this->addFlash('success', 'Dictionary entry (' . $dictionaryEntry->getTerm() . ') deleted!');
 
         return $this->redirectToRoute('dictionaryList');
     }

@@ -23,8 +23,6 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $userFormData = $form->getData();
-
             // Encode the password
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
@@ -36,7 +34,7 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render(

@@ -1,6 +1,11 @@
 div.body-container{
   margin: 2rem;
   display:flex;
+  flex-direction: column;
+  .alert{
+    text-align: center;
+
+  }
 }
 
 .btn{
