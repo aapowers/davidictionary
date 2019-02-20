@@ -58,7 +58,7 @@ class DictionaryEntryController extends AbstractController
             return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
         }
 
-        return $this->render('form/create.html.twig', [
+        return $this->render('form/dictionary-entry-form.html.twig', [
             'dictionaryEntryForm' => $form->createView(),
         ]);
     }
@@ -99,7 +99,7 @@ class DictionaryEntryController extends AbstractController
             return $this->redirectToRoute("view", ['id' => $dictionaryEntry->getId()]);
         }
 
-        return $this->render('form/create.html.twig', [
+        return $this->render('form/dictionary-entry-form.html.twig', [
             'dictionaryEntryForm' => $form->createView(),
         ]);
     }

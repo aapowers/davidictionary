@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(searchForm) }}
-    {{ form_widget(searchForm) }}
-    {{ form_end(searchForm) }}
+    <div id="search-form">
+        {{ form_start(searchForm) }}
+        {{ form_widget(searchForm) }}
+        {{ form_end(searchForm) }}
+    </div>
 {% endblock %}

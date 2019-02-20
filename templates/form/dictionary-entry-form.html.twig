@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="dictionary-entry-form">
+        {{ form_start(dictionaryEntryForm) }}
+        {{ form_widget(dictionaryEntryForm) }}
+        {{ form_end(dictionaryEntryForm) }}
+    </div>
+{% endblock %}
