@@ -2,6 +2,7 @@
 
 {% block body %}
     <div id="search-form">
+        {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
         {{ form_start(searchForm) }}
         {{ form_widget(searchForm) }}
         {{ form_end(searchForm) }}

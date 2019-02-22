@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\DictionaryEntry;
 use App\Manager\DictionaryEntryManager;
 use App\Form\DictionaryEntryFormType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
@@ -132,7 +132,11 @@ class DictionaryEntryController extends AbstractController
     public function searchAction(Request $request)
     {
         $form = $this->createFormBuilder()
-            ->add('searchTerm', SearchType::class)
+            ->add('searchTerm', SearchType::class, [
+                'required'   => true,
+                'label' => false,
+                'attr' => ['placeholder' => 'search it up, yo']
+            ])
             ->add('search', SubmitType::class)
             ->getForm();
 

@@ -1,3 +1,18 @@
 #search-form{
   margin:auto;
+
+  button, .btn{
+    &:hover, &:active{
+      color: white;
+      background: lighten(black, 10%);
+      border-color: black;
+    }
+  }
+
+  input{
+    &:focus{
+      border-color: darkred;
+      box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.1);
+    }
+  }
 }
