@@ -1,9 +1,9 @@
 import '../scss/app.scss';
 import '../scss/base.scss';
-import '../scss/navbar.scss';
+import '../scss/_fragments/navbar.scss';
 import '../scss/list.scss';
-import '../scss/form/search-form.scss';
-import '../scss/form/dictionary-entry-form.scss';
+import '../scss/_fragments/form.scss';
+
 
 var $ = require('jQuery');
 

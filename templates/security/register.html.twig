@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.username) }}
-        {{ form_row(form.password.first) }}
-        {{ form_row(form.password.second) }}
-        <button type="submit">Register!</button>
-    {{ form_end(form) }}
+    <div class="form-container" id="register-form">
+        {% form_theme registerForm 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(registerForm) }}
+        {{ form_widget(registerForm) }}
+        {{ form_end(registerForm) }}
+    </div>
 {% endblock body %}

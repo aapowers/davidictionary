@@ -21,13 +21,15 @@ class DictionaryEntryFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('term', TextType::class)
-            ->add('definition', TextareaType::class)
-            ->add('save', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-md btn-default btn-block'
-                ]
+            ->add('term', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Term']
             ])
+            ->add('definition', TextareaType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Definition']
+            ])
+            ->add('save', SubmitType::class)
         ;
     }
 

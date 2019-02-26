@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="search-form">
+    <div class="form-container" id="search-form">
         {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
         {{ form_start(searchForm) }}
         {{ form_widget(searchForm) }}
