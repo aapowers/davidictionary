@@ -18,17 +18,17 @@ class UserFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => false,
+                'label_attr' => ['class' => 'sr-only'],
                 'attr' => ['placeholder' => 'Username']
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options'  => [
-                    'label' => false,
+                    'label_attr' => ['class' => 'sr-only'],
                     'attr' => ['placeholder' => 'Password']
                 ],
                 'second_options' => [
-                    'label' => false,
+                    'label_attr' => ['class' => 'sr-only'],
                     'attr' => ['placeholder' => 'Repeat Password']
                 ],
             ])

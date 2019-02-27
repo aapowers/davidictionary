@@ -22,12 +22,15 @@ class DictionaryEntryFormType extends AbstractType
     {
         $builder
             ->add('term', TextType::class, [
-                'label' => false,
+                'label_attr' => ['class' => 'sr-only'],
                 'attr' => ['placeholder' => 'Term']
             ])
             ->add('definition', TextareaType::class, [
-                'label' => false,
-                'attr' => ['placeholder' => 'Definition']
+                'label_attr' => ['class' => 'sr-only'],
+                'attr' => [
+                    'placeholder' => 'Definition',
+                    'minRows' => 3
+                ]
             ])
             ->add('save', SubmitType::class)
         ;

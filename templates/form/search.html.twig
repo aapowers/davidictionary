@@ -2,9 +2,11 @@
 
 {% block body %}
     <div class="form-container" id="search-form">
-        {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
+        {% form_theme searchForm 'form/icon_elements.html.twig' %}
         {{ form_start(searchForm) }}
-        {{ form_widget(searchForm) }}
+            {{ form_label(searchForm.searchTerm) }}
+            {{ form_widget(searchForm.searchTerm) }}
+            {{ form_widget(searchForm.search, {'left_icon': 'fas fa-search mr-1'}) }}
         {{ form_end(searchForm) }}
     </div>
 {% endblock %}

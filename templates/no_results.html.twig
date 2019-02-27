@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>No results found.</div>
-    <div class="action-bar">
-        <ul>
-            <li class="action-item">
-                <a class="action-link" href="{{ path('search') }}"><span class="fa fa-search"></span> search for a term</a>
-            </li>
-        </ul>
+    <div class="result-container">
+        <div class="header text-center">No Results</div>
+        <div class="text-center result-content">Sorry, try searching for a different term.</div>
+        <div class="footer">
+            <ul class="pb-2">
+                <div class="fa-pull-left">
+                    <li class="action-item ml-auto mr-auto">
+                        <a class="action-link" href="{{ path('search') }}"><span class="fas fa-search mr-1"></span>search for a term</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
     </div>
 {% endblock %}

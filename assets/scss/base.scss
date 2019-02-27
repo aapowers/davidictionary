@@ -1,9 +1,31 @@
 div.body-container{
   margin: 2rem;
-  padding: 2rem;
   display:flex;
   flex-direction: column;
-  .alert{
-    text-align: center;
+
+  .result-container{
+    border-radius: 3px;
+    box-shadow: 0 0 5px #ccc;
+
+    .header{
+      padding: 0.5rem;
+      position: relative;
+      border-radius: 3px 3px 0 0;
+      background: #212529;
+      color: white;
+      font-weight: bold;
+    }
+
+    .result-content{
+      padding: 1rem;
+      position: relative;
+    }
+
+    .footer{
+      padding: .70rem;
+      position: relative;
+      background-color: lightgray;
+      border-radius: 0 0 3px 3px;
+    }
   }
 }

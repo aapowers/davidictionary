@@ -1,12 +1,13 @@
 import '../scss/app.scss';
 import '../scss/base.scss';
-import '../scss/_fragments/navbar.scss';
 import '../scss/list.scss';
+import '../scss/_fragments/navbar.scss';
 import '../scss/_fragments/form.scss';
 
 
-var $ = require('jQuery');
+let $ = require('jQuery');
 
+// This removes flash alerts after 4 seconds
 $(document).ready(function () {
     setTimeout(function(){
         $("div.alert").fadeOut("slow", function() {

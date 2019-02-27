@@ -2,7 +2,7 @@
 
 {% block body %}
     {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center mr-auto">
             {{ message }}
         </div>
     {% endfor %}
@@ -22,13 +22,13 @@
                     <td>
                         <ul>
                             <li class="action-item">
-                                <a class="action-link" href="{{ path('view', { 'id': entry.getId }) }}"><span class="fa fa-binoculars"></span> view</a>
+                                <a class="action-link" href="{{ path('view', { 'id': entry.getId }) }}"><span class="fas fa-binoculars mr-1"></span>view</a>
                             </li>
                             <li class="action-item">
-                                <a class="action-link" href="{{ path('edit', { 'id': entry.getId }) }}"><span class="fa fa-edit"></span> edit</a>
+                                <a class="action-link" href="{{ path('edit', { 'id': entry.getId }) }}"><span class="fas fa-edit mr-1"></span>edit</a>
                             </li>
                             <li class="action-item">
-                                <a class="action-link" href="{{ path('delete', { 'id': entry.getId }) }}"><span class="fa fa-trash"></span> delete</a>
+                                <a class="action-link" href="{{ path('delete', { 'id': entry.getId }) }}"><span class="fas fa-trash mr-1"></span>delete</a>
                             </li>
                         </ul>
                     </td>

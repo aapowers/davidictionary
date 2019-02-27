@@ -134,7 +134,7 @@ class DictionaryEntryController extends AbstractController
         $form = $this->createFormBuilder()
             ->add('searchTerm', SearchType::class, [
                 'required'   => true,
-                'label' => false,
+                'label_attr' => ['class' => 'sr-only'],
                 'attr' => ['placeholder' => 'search it up, yo']
             ])
             ->add('search', SubmitType::class)

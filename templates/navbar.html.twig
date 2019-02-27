@@ -1,15 +1,15 @@
 <nav id="top-nav" class="navbar navbar-dark navbar-expand-lg">
 
-    <a class="navbar-brand" href="{{ path('homepage') }}"><span class="fa fa-book-open"></span> davidictionary</a>
+    <a class="navbar-brand" href="{{ path('homepage') }}"><span class="fas fa-book-open mr-1"></span>davidictionary</a>
 
     {% if is_granted('ROLE_ADMIN') %}
         <div>
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <a class="nav-item" href="{{ path('dictionaryList') }}"><span class="fa fa-list-alt"></span> View All Entries</a>
+                    <a class="nav-item" href="{{ path('dictionaryList') }}"><span class="fas fa-list-alt mr-1"></span>View All Entries</a>
                 </li>
                 <li>
-                    <a class="nav-item" href="{{ path('create') }}"><span class="fa fa-plus-circle"></span> Create a New Entry</a>
+                    <a class="nav-item" href="{{ path('create') }}"><span class="fas fa-plus-circle mr-1"></span>Create a New Entry</a>
                 </li>
             </ul>
         </div>
@@ -19,7 +19,7 @@
         <div class="user-info">
             <div class="user-greeting nav-item">Hi, <b>{{ app.user.username }}!</b></div>
             <div class="logout-link nav-item">
-                <a href="{{ path('app_logout') }}"><span class="fa fa-sign-out-alt"></span> Logout</a>
+                <a href="{{ path('app_logout') }}"><span class="fas fa-sign-out-alt mr-1"></span> Logout</a>
             </div>
         </div>
     {% endif %}
