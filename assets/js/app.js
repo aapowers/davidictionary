@@ -3,6 +3,7 @@ import '../scss/base.scss';
 import '../scss/list.scss';
 import '../scss/_fragments/navbar.scss';
 import '../scss/_fragments/form.scss';
+import 'bootstrap';
 
 
 let $ = require('jQuery');

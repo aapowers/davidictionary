@@ -2,7 +2,7 @@
 
 {% block body %}
     {% for message in app.flashes('success') %}
-        <div class="alert alert-success text-center mr-auto">
+        <div class="alert alert-success text-center">
             {{ message }}
         </div>
     {% endfor %}
