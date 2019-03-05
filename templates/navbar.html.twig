@@ -2,6 +2,7 @@
 
     <a class="navbar-brand" href="{{ path('homepage') }}"><span class="fas fa-book-open mr-1"></span>davidictionary</a>
 
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <button
             class="navbar-toggler"
             id="navbar-toggler"
@@ -14,6 +15,7 @@
     >
         <span class="navbar-toggler-icon"></span>
     </button>
+    {% endif %}
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         {% if is_granted('ROLE_ADMIN') %}
